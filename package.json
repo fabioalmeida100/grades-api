@@ -1,0 +1,24 @@
+{
+  "name": "grades-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabioalmeida100/grades-api.git"
+  },
+  "keywords": [],
+  "author": "Fabio Almeida <fabioalmeida@fabiodeveloper.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fabioalmeida100/grades-api/issues"
+  },
+  "homepage": "https://github.com/fabioalmeida100/grades-api#readme",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
