@@ -82,6 +82,24 @@ router.get("/getAverageBySubjectAndType/:subject/:type", async (req, res) => {
   }
 });
 
+router.get("/getThreeBiggestBySubjectAndType/:subject/:type", async (req, res) => {
+  try {
+    const dbJson = JSON.parse(await readFile(global.dataBaseFile));
+
+    let gradeList = dbJson.grades.filter((grade) => {
+      return  (grade.subject === req.params.subject) && (grade.type === req.params.type);
+    });
+
+    let gradeBiggest = gradeList.sort((a,b) => {
+      return b.value - a.value
+    }).slice(0, 3);
+
+    res.send(gradeBiggest);    
+  } catch (err) {
+    res.status(400).send({"error": error.message}); 
+  }
+});
+
 router.patch("/update", async (req, res) => {
     try {
       const grade = req.body;
