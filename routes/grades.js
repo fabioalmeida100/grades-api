@@ -56,4 +56,23 @@ router.patch("/update", async (req, res) => {
     }
 });
 
+router.delete("/delete/:id", async (req, res) => {
+    try {
+      const dbJson = JSON.parse(await readFile(global.dataBaseFile));
+
+      let gradesUpdated = dbJson.grades.filter(grade => {
+        return grade.id != req.params.id;
+      })
+
+      dbJson.grades = gradesUpdated;
+
+      await writeFile(global.dataBaseFile, JSON.stringify(dbJson, null, 2));
+
+      res.send(dbJson);
+
+    } catch (error) {
+      res.status(400).send({"error": error.message});
+    }
+});
+
 export default router;
