@@ -27,6 +27,21 @@ router.post('/create', async (req, res) => {
     }
 });
 
+router.get("/getById/:id", async (req, res) => {
+  try {
+    const dbJson = JSON.parse(await readFile(global.dataBaseFile));
+
+    let grade = dbJson.grades.find((grade) => {
+      return grade.id === parseInt(req.params.id);
+    });
+
+    res.send(grade);
+    
+  } catch (err) {
+    res.status(400).send({"error": error.message}); 
+  }
+});
+
 router.patch("/update", async (req, res) => {
     try {
       const grade = req.body;
