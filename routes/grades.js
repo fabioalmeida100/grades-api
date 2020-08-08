@@ -36,6 +36,25 @@ router.get("/getById/:id", async (req, res) => {
     });
 
     res.send(grade);
+
+  } catch (err) {
+    res.status(400).send({"error": error.message}); 
+  }
+});
+
+router.get("/getSum/:student/:subject", async (req, res) => {
+  try {
+    const dbJson = JSON.parse(await readFile(global.dataBaseFile));
+
+    let gradeList = dbJson.grades.filter((grade) => {
+      return  (grade.student === req.params.student) && (grade.subject === req.params.subject);
+    });
+
+    let totalValue = gradeList.reduce((accumulator, current) => {
+      return accumulator + current.value;
+    }, 0);
+
+    res.send({total: totalValue});
     
   } catch (err) {
     res.status(400).send({"error": error.message}); 
