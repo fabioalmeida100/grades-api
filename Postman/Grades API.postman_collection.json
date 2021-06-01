@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "20c688f9-7ac9-4dd4-b78b-e4a764609669",
+		"name": "Grades API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlBase}}/test",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlBase}}/grades/getById/10",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"grades",
+						"getById",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSumByStudentAndSubject",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlBase}}/grades/getSumByStudentAndSubject/Loiane Groner/01 - JavaScript",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"grades",
+						"getSumByStudentAndSubject",
+						"Loiane Groner",
+						"01 - JavaScript"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAverageBySubjectAndType",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlBase}}/grades/getAverageBySubjectAndType/01 - JavaScript/Desafio",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"grades",
+						"getAverageBySubjectAndType",
+						"01 - JavaScript",
+						"Desafio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getThreeBiggestBySubjectAndType",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlBase}}/grades/getThreeBiggestBySubjectAndType/01 - JavaScript/Desafio",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"grades",
+						"getThreeBiggestBySubjectAndType",
+						"01 - JavaScript",
+						"Desafio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"student\": \"Fábio da Cruz Almeida\",\r\n    \"subject\": \"JavaScript\",\r\n    \"type\": \"Desafio\",\r\n    \"value\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{urlBase}}/grades/create",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"grades",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"student\": \"Fábio da Cruz Almeida\",\r\n    \"subject\": \"Node.js\",\r\n    \"type\": \"Desafio\",\r\n    \"value\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{urlBase}}/grades/update",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"grades",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"student\": \"Fábio da Cruz Almeida\",\r\n    \"subject\": \"Node.js\",\r\n    \"type\": \"Desafio\",\r\n    \"value\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{urlBase}}/grades/delete/7",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"grades",
+						"delete",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
